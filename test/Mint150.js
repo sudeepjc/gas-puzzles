@@ -41,7 +41,7 @@ describe("Mint150", async function () {
         await ethers.provider.send("hardhat_reset");
 
         [owner, attacker] = await ethers.getSigners();
-        const VictimToken = await ethers.getContractFactory("contracts/contracts_optimized/Mint150.sol:NotRareToken");
+        const VictimToken = await ethers.getContractFactory("optimizedContracts/Mint150.sol:NotRareToken");
         victimToken = await VictimToken.deploy();
         await victimToken.deployed();
 
@@ -83,7 +83,7 @@ describe("Mint150", async function () {
 
             const txn = await attackerContract
                 .connect(attacker)
-                .deploy(victimToken.address);
+                .deploy(victimToken.address, {gasLimit: 10000000});
         });
     });
 

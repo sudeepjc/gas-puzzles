@@ -14,4 +14,10 @@ module.exports = {
     mocha: {
         timeout: 40000,
     },
+    paths: {
+        sources: "./optimizedContracts",
+        tests: "./test",
+        cache: "./cache",
+        artifacts: "./artifacts"
+      },
 };
